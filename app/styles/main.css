@@ -61,7 +61,7 @@ a {
 
 #group2 .centered-content {
   left: 50%;
-  top: 90%;
+  top: 120%;
 }
 
 #projects-page {
@@ -106,7 +106,7 @@ neon-animated-pages {
 @media all and (min-width: 481px) and (orientation: landscape) {
 
   #group2 .centered-content {
-    top: 150%;
+    top: 160%;
   }
 
 }
@@ -114,7 +114,7 @@ neon-animated-pages {
 @media all and (min-width: 768px) and (orientation: landscape) {
 
   #group2 .centered-content {
-    top: 120%;
+    top: 130%;
   }
 
 }
