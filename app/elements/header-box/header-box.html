@@ -1,0 +1,129 @@
+<!--
+  @license
+  Copyright Jesus Perez <jesusprubio gmail com>
+  Copyright (c) 2015 The Polymer Project Authors. (created with "generator-polymer")
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<dom-module id="header-box">
+
+  <style>
+
+    :host {
+      display: block;
+    }
+
+    .centered-content iron-image {
+        border: 1px solid;
+        border-radius: 50%;
+        margin-top: 3em;
+        margin-bottom: .2em;
+        width: 5em;
+        height: 5em;
+    }
+
+    #title {
+        font-size: 1.3em;
+    }
+
+    #subtitle {
+        font-size: 1.1em;
+        margin-top: .2em;
+        color: #ff9800;
+    }
+
+    #resume p {
+        /* reset <p> margin */
+        margin: 1em 0 0 0;
+        font-size: .8em;
+        justify-content: center;
+
+        -webkit-animation: fadein 5s;
+           -moz-animation: fadein 2s;
+            -ms-animation: fadein 2s;
+             -o-animation: fadein 2s;
+                animation: fadein 2s;
+    }
+
+    @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+    @-moz-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+    @-webkit-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+    @-ms-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+    @-o-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+    
+    #resume span {
+      color: lightgray;
+    }
+        
+  </style>
+
+  <template>
+
+    <div class="centered-content">
+      <iron-image src="../../images/me.jpg" sizing="cover"></iron-image>
+      <div id="title" >@jesusprubio</div>
+      <div id="subtitle">writing stuff</div>
+      <div id="resume">
+        <p>
+            I'm a <a href="https://iojs.org/en/index.html" title="io.js site">Node</a>
+            enthusiast who works as Lead Mobile Developer at
+            <a href="http://eface2face.com" title="eFace2Face site">eFace2Face</a>.
+            When I'm not busy creating immersive user experiences, I enjoy hacking away
+            <a href="https://github.com/jesusprubio/bluebox-ng" title="Bluebox-ng site">
+            Bluebox-ng</a>, a free VoIP vulnerability scanner. I'm originally from
+            <a href="https://encrypted.google.com/search?q=ribadeo&tbm=isch"
+               title="Ribadeo search on Google images">Ribadeo</a>, but I live in Madrid now.
+            My passions include basketball, grumpy cats and TV drama.
+        </p>
+        <p>If you're looking for the projects I'm (or I've been) involved please
+          <span on-tap="goProjects">click here</span>.</p>
+      </div>
+    </div>
+    
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+
+    is: 'header-box',
+
+    ready: function () {
+    },
+
+    goProjects: function () {
+      console.log('Going to projects page ...');
+      // To avoid problems with the bg coming back
+      app.parallaxObj.scrollTop = 0;
+      page('#!/projects');
+    }
+    
+  });
+
+</script>

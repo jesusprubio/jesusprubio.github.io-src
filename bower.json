@@ -1,0 +1,19 @@
+{
+  "name": "jesusprubio.github.io-src",
+  "private": true,
+  "dependencies": {
+    "page": "visionmedia/page.js#~1.6.3",
+    "parallax-container": "~0.0.3",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.0",
+    "iron-icons": "PolymerElements/iron-icons#^1.0.0",
+    "iron-image": "PolymerElements/iron-image#^1.0.0",
+    "iron-pages": "PolymerElements/iron-pages#^1.0.0",
+    "paper-fab": "PolymerElements/paper-fab#~1.0.2",
+    "paper-styles": "PolymerElements/paper-styles#^1.0.0",
+    "neon-animation": "PolymerElements/neon-animation#^1.0.0"
+  },
+  "devDependencies": {
+    "web-component-tester": "*",
+    "test-fixture": "PolymerElements/test-fixture#^1.0.0"
+  }
+}

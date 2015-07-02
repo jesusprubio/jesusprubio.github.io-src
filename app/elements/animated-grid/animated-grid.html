@@ -1,0 +1,268 @@
+<!--
+  @license
+  Copyright Jesus Perez <jesusprubio gmail com>
+  Copyright (c) 2015 The Polymer Project Authors. (created with "generator-polymer")
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<dom-module id="animated-grid">
+
+  <style>
+
+    :host {
+      display: block;
+    }
+
+    .tile {
+      display: inline-block;
+      float: left;
+      vertical-align: top;
+      width: calc(100% / 3);
+      height: calc(100% / 3);
+      color: white;
+      @apply(--layout-vertical);
+      @apply(--layout-center-center);
+    }
+
+    .tile:nth-of-type(1), .tile:nth-of-type(3),
+    .tile:nth-of-type(4), .tile:nth-of-type(5) {
+      color: dimgrey;
+    }
+
+    .iron-image {
+        /*border: 1px solid;
+        border-radius: 50%;
+        margin-top: 3em;
+        margin-bottom: .2em;*/
+        width: 5em;
+        height: 5em;
+    }
+
+    paper-fab {
+      position: fixed;
+    	bottom: .5em;
+    	right: .5em;
+    }
+
+    paper-fab.paper-fab-0 {
+      background: black;
+      color: white;
+    }
+    
+    @media all and (min-width: 481px) and (orientation: landscape) {
+
+      paper-fab {
+      	bottom: .75em;
+      	right: .75em;
+      }
+
+    }
+
+    @media all and (min-width: 768px) and (orientation: landscape) {
+
+      paper-fab {
+      	bottom: 1em;
+      	right: 1em;
+      }
+
+    }
+
+    @media all and (min-width: 841px) and (orientation: landscape) {
+
+      paper-fab {
+      	bottom: 1.25em;
+      	right: 1.25em;
+      }
+
+    }
+
+    @media all and (min-width: 1024px) and (orientation: landscape) {
+
+      paper-fab {
+      	bottom: 1.5em;
+      	right: 1.5em;
+      }
+
+    }
+    
+  </style>
+
+  <template>
+
+    <template is="dom-repeat" items="[[config]]">
+      <div class$="[[_computeTileClass(item.color)]]">
+        <span>[[item.value]]</span>
+      </div>
+    </template>
+
+    <paper-fab mini icon="chevron-left" on-click="goHome"></paper-fab>
+
+  </template>
+
+</dom-module>
+
+<script>
+
+  Polymer({
+
+    is: 'animated-grid',
+
+    behaviors: [
+      Polymer.NeonSharedElementAnimatableBehavior
+    ],
+
+    properties: {
+
+      config: {
+        type: Array,
+        value: function() {
+          return [
+            {
+              value: 'Filter.ly',
+              color: 'white',
+              url: 'http://filter.ly',
+              description: 'Filter.ly scans the internet to find and deliver the most important information right to your screen.',
+              rol: 'I was a core developer in the Frontend (YUI), the Node backend (Express, OAuth) and the lead for the Android and iOS mobile apps (Cordova).',
+              picture: 'filterly.gif'
+            },
+            {
+              value: 'Bluebox-ng',
+              color: 'orange',
+              url: 'https://github.com/jesusprubio/bluebox-ng',
+              description: 'VoIP pentesting framework written using Node powers. Our 2 cents to make the Node world still more awesome. ;)',
+              rol: 'I started it to automate some pentesting tasks working at Quobis (through the personal projects program hours) and to improve my JavaScript in my spare time. The first stable version was presented al Black Hat Arsenal EU (2014).',
+              picture: 'bluebox.gif'
+            },
+            {
+              value: 'eFace2Face',
+              color: 'white',
+              url: 'http://eface2face.com',
+              description: 'Boost productivity and efficiency with video calling, content sharing, and electronic signature.',
+              rol: 'I lead the implementation of the Android and iOS mobile apps (Cordova), helping with the re-design of all client-side stuff (JavaScript) and I hope to start with the hardening of the whole platform soon.',
+              picture: 'ef2f.gif'
+            },
+            {
+              value: 'IdentityCall',
+              color: 'white',
+              url: 'http://www.quobis.com/index.php?option=com_content&task=view&id=19&Itemid=30',
+              description: 'IdentityCall adds encryption and user authentication to WebRTC services. This guarantees the identity of the speakers, allowing a new generation of security services and applications.',
+              rol: 'I designed and implement the server side (Apache, TLS, Kamailio, QoffeeSIP, etc.) and I was in charge of the demo deployment. It uses QoffeeSIP as stack.',
+              picture: 'idcallVideo.jpg'
+            },
+            {
+              value: 'GSICKMINDS',
+              color: 'white',
+              url: 'http://gsickminds.net',
+              description: 'Event website',
+              rol: 'I\'m a core developer, the backend is written in Node and the client side using YUI.',
+              picture: 'gsick.gif'
+            },
+            {
+              value: 'rtcninja.js',
+              color: 'orange',
+              url: 'https://github.com/eface2face/rtcninja.js',
+              description: 'WebRTC API wrapper to deal with different browsers transparently, eventually this library shouldn\'t be needed. We only have to wait until W3C group in charge finishes the specification and the different browsers implement it correctly :|.',
+              rol: 'I\'m a core developer, I work on it beause of being the most important part of eFace2Face mobile apps.',
+              picture: 'ninja.jpeg'
+            },
+            {
+              value: 'QoffeeSIP',
+              color: 'orange',
+              url: 'https://quobis.atlassian.net/wiki/display/QoffeeSIP/QoffeeSIP+Homepage+Home',
+              description: 'QoffeeSIP is a complete Javascript SIP stack that can be used in a website to exploit all the multimedia capabilities of WebRTC technology. Instead of using pure Javascript, QoffeeSIP has been coded with CoffeeScript so you can easily modify it to suit your needs.',
+              rol: 'I was a core developer since its first steps during more than a year, so I made a bit of everything: design, write code, document, etc. The picture show SIPPO, a product which uses it.',
+              picture: 'sippo.gif'
+            },
+            {
+              value: 'FOSS',
+              color: 'orange',
+              url: 'https://github.com/jesusprubio',
+              description: 'Some Free and Open Source software contributions',
+              rol: 'I love to write free software, so I often commit to different projects I like (or I need) as NodeGoat, a vulnerable web app to learn the OWASP Top 10 in Node. Moreover I\'ve published some libraries like "node-shodan-client" to use the SHODAN API in node and "node-exploitsearch" to look for known vulnerabilities and exploits. I\'m also starting now to publish the Polymer components I use in my projects.',
+              picture: 'shodan.gif'
+            },
+            {
+              value: 'Tmos',
+              color: 'orange',
+              url: 'http://tmos.es/',
+              description: 'My brother\'s (@manuprubio) restaurant site.',
+              rol: 'Unique author, the site is written with Polymer. I\'m not a graphical artist but I tried to do my best with the help of Android material design. It uses the v0.5 but we\'re already working in the new upgraded version supporting internationalization and with a complete re-design.',
+              picture: 'tmos.gif'
+            }
+          ];
+        }
+      },
+
+      animationConfig: {
+        type: Object,
+        value: function() {
+          return {
+            'exit': [{
+              name: 'ripple-animation',
+              id: 'ripple',
+              fromPage: this
+            }, {
+              name: 'hero-animation',
+              id: 'hero',
+              fromPage: this
+            }]
+          };
+        }
+      }
+
+    },
+    
+    goHome: function () {
+      console.log('Going to projects page ...');
+      page('/');
+    },
+
+    listeners: {
+      click: '_onClick'
+    },
+
+    _computeTileClass: function(color) {
+      return 'tile ' + color + '-300';
+    },
+
+    _onClick: function(event) {
+      var target = event.target;
+      
+      while (target !== this && !target._templateInstance) {
+        target = target.parentNode;
+      }
+
+      // configure the page animation
+      this.sharedElements = {
+        'hero': target,
+        'ripple': target
+      };
+
+      if (target._templateInstance) {
+
+        this.animationConfig.exit[0].gesture = {
+          x: event.x || event.pageX,
+          y: event.y || event.pageY
+        };
+        
+        this.fire('tile-click', {
+          tile: target,
+          data: target._templateInstance.item
+        });
+      }
+
+    }
+
+  });
+
+</script>

@@ -1,0 +1,24 @@
+# Node and bower dependencies
+node_modules
+bower_components
+
+# Generated files
+dist
+
+# Logs and databases
+*.log
+dump.rdb
+output
+
+# IDE
+.tmp
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
