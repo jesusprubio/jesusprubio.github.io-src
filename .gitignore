@@ -1,17 +1,14 @@
-# Node and bower dependencies
 node_modules
-bower_components
-
-# Generated files
 dist
+test/temp
+bower_components
+.tmp
+test/bower_components/
 
 # Logs and databases
 *.log
 dump.rdb
 output
-
-# IDE
-.tmp
 
 # OS
 .DS_Store
@@ -22,3 +19,4 @@ output
 Icon?
 ehthumbs.db
 Thumbs.db
+

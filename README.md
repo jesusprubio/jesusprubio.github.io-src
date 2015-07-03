@@ -8,3 +8,4 @@ This project was created using this ["generator-polymer"](https://github.com/yeo
 ## TODO
 - Implement the tests.
 - Add an error page.
+- Performance "opening" the projects page.

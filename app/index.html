@@ -20,12 +20,13 @@
 
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+  <!-- TODO: Not working in Safari -->
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self';
     style-src 'self' fonts.googleapis.com 'unsafe-inline';
     script-src 'self' www.youtube.com/iframe_api s.ytimg.com 'unsafe-inline';
     font-src 'self' fonts.gstatic.com;
     connect-src 'self' ws://localhost:3000;
-    frame-src 'self' https://www.youtube.com 'unsafe-inline'">
+    frame-src 'self' https://www.youtube.com 'unsafe-inline'"> -->
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="@jesusprubio" />
@@ -85,14 +86,14 @@
       <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
         <section data-route="home">
-          <parallax-container>
+          <parallax-container id="paraContent">
 
             <parallax-group id="group1" z=1>
               <parallax-layer>
                 <header-box></header-box>
               </parallax-layer>
               <!-- A background only -->
-              <parallax-layer layer="-1">
+              <parallax-layer id="layerBg" layer="-1">
               </parallax-layer>
             </parallax-group>
             
@@ -107,7 +108,7 @@
 
             <animated-grid on-tile-click="_onTileClick"></animated-grid>
 
-            <fullsize-page-with-card id="fullsize-card" hero-id="hero" on-click="_onFullsizeClick">
+            <fullsize-page-with-card id="fullsizeCard" hero-id="hero" on-click="_onFullsizeClick">
             </fullsize-page-with-card>
 
           </neon-animated-pages>

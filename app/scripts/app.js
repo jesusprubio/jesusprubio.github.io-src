@@ -21,9 +21,9 @@
   // Grab a reference to our auto-binding template
   // and give it some initial binding values
   // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
-  var app = document.querySelector('#app'),
-      fullPageObj;
-  
+  var app = document.querySelector('#app');
+  var IsSafari = /^((?!chrome).)*safari/i.test(navigator.userAgent);
+
   // Listen for template bound event to know when bindings
   // have resolved and content has been stamped to the page
   app.addEventListener('dom-change', function() {
@@ -32,20 +32,27 @@
 
   // See https://github.com/Polymer/polymer/issues/1381
   window.addEventListener('WebComponentsReady', function() {
-    fullPageObj = document.querySelector('fullsize-page-with-card');
-
-    // TODO: We need them in other places, pass them as a property
-    app.parallaxObj = document.querySelector('parallax-container');
   });
 
   app._onTileClick = function(event) {
-    this.$['fullsize-card'].projectData = event.detail.data;
-    this.$.pages.selected = 1;
+    app.$.fullsizeCard.projectData = event.detail.data;
+    app.$.pages.selected = 1;
   };
 
   app._onFullsizeClick = function() {
     // To allow problems caming back the next time
-    fullPageObj.scrollTop = 0;
-    this.$.pages.selected = 0;
+    app.$.fullsizeCard.scrollTop = 0;
+    app.$.pages.selected = 0;
+  };
+
+  window.onorientationchange = function() {
+    // Dirty trick to solve a parallax component problem in this case (Safari only)
+    if (IsSafari && app.route === 'home' && app.$.paraContent.scrollTop !== 0) {
+      app.$.layerBg.style.background = 'url("../images/bg.jpg")';
+    }
+    // Both scrollers
+    app.$.paraContent.scrollTop = 0;
+    app.$.fullsizeCard.scrollTop = 0;
+
   };
 })(document);

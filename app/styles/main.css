@@ -61,7 +61,7 @@ a {
 
 #group2 .centered-content {
   left: 50%;
-  top: 120%;
+  top: 100%;
 }
 
 #projects-page {
@@ -106,7 +106,7 @@ neon-animated-pages {
 @media all and (min-width: 481px) and (orientation: landscape) {
 
   #group2 .centered-content {
-    top: 160%;
+    top: 180%;
   }
 
 }
@@ -114,7 +114,7 @@ neon-animated-pages {
 @media all and (min-width: 768px) and (orientation: landscape) {
 
   #group2 .centered-content {
-    top: 130%;
+    top: 150%;
   }
 
 }
@@ -130,7 +130,15 @@ neon-animated-pages {
 @media all and (min-width: 841px) and (orientation: landscape) {
 
   #group2 .centered-content {
-    top: 100%;
+    top: 110%;
+  }
+
+}
+
+@media all and (min-width: 841px) and (orientation: portrait) {
+
+  #group2 .centered-content {
+    top: 30%;
   }
 
 }
