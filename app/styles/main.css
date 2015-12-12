@@ -64,18 +64,6 @@ a {
   top: 100%;
 }
 
-#projects-page {
-  /*background: white;*/
-  background: #ff9800;
-  color: dimgray;
-  height: 100vh;
-  font-family: 'OpenSans-Light', sans-serif;
-}
-
-neon-animated-pages {
-  height: 100%;
-}
-
 /* Shared stuff */
 .centered-content {
   text-align: center;

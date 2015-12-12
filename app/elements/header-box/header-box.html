@@ -87,21 +87,17 @@
     <div class="centered-content">
       <iron-image src="../../images/me.jpg" sizing="cover"></iron-image>
       <div id="title" >@jesusprubio</div>
-      <div id="subtitle">writing .js stuff</div>
+      <div id="subtitle">writing Node.js stuff</div>
       <div id="resume">
         <p>
-            Node.js enthusiast. When I'm not busy creating immersive user experiences,
-            I enjoy hacking away
-            <a href="https://github.com/jesusprubio/bluebox-ng" title="Bluebox-ng site">
-            Bluebox-ng</a>, a free VoIP vulnerability scanner. I'm originally from
+            Security enthusiast and free software lover. Born in
             <a href="https://encrypted.google.com/search?q=ribadeo&tbm=isch"
-               title="Ribadeo search on Google images">Ribadeo</a>, but I live in Madrid now.
-            My passions include basketball, grumpy cats and TV drama.
+               title="Ribadeo search on Google images">Ribadeo</a>,
+            my passions include basketball, grumpy cats and TV drama.
         </p>
-        <p>If you're looking for the projects I'm (or I've been) involved please
-          <span on-tap="goProjects">click here</span>, you can also visit my
-            <a href="http://nicerosniunos.blogspot.com.es/"
-               title="Personal old blog">old blog</a>.
+        <p>
+          <a href="http://nicerosniunos.blogspot.com.es/"
+               title="Personal old blog"> - old blog</a>
         </p>
       </div>
     </div>
@@ -110,17 +106,6 @@
 </dom-module>
 
 <script>
-  Polymer({
-
-    is: 'header-box',
-
-    goProjects: function () {
-      console.log('Going to projects page ...');
-      // To avoid problems with the bg coming back
-      app.$.paraContent.scrollTop = 0;
-      page('#!/projects');
-    }
-    
-  });
+  Polymer({ is: 'header-box' });
 
 </script>

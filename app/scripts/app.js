@@ -31,28 +31,15 @@
   });
 
   // See https://github.com/Polymer/polymer/issues/1381
-  window.addEventListener('WebComponentsReady', function() {
-  });
-
-  app._onTileClick = function(event) {
-    app.$.fullsizeCard.projectData = event.detail.data;
-    app.$.pages.selected = 1;
-  };
-
-  app._onFullsizeClick = function() {
-    // To allow problems caming back the next time
-    app.$.fullsizeCard.scrollTop = 0;
-    app.$.pages.selected = 0;
-  };
+  // window.addEventListener('WebComponentsReady', function() {
+  // });
 
   window.onorientationchange = function() {
     // Dirty trick to solve a parallax component problem in this case (Safari only)
     if (IsSafari && app.route === 'home' && app.$.paraContent.scrollTop !== 0) {
       app.$.layerBg.style.background = 'url("../images/bg.jpg")';
     }
-    // Both scrollers
+    // Another trick to avoid ugly effects
     app.$.paraContent.scrollTop = 0;
-    app.$.fullsizeCard.scrollTop = 0;
-
   };
 })(document);
